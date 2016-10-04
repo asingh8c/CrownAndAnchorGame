@@ -1,10 +1,22 @@
 import java.util.List;
 import java.io.*;
+import java.util.Scanner; 
 
 public class Main {
 	
 	public static void main(String[] args) throws Exception {
+		int age=20;
 		
+		while(age>=18){
+			
+			Scanner reader = new Scanner(System.in);  // Reading from System.in
+			System.out.println("Enter your name: ");
+			String name1 = reader.next(); // Scans the next token of the input as string
+			
+			
+			System.out.println("Enter your age: ");
+			 age = reader.nextInt(); // Scans the next token of the input as an Int
+			if(age>=18){
 	   BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
 
         Dice d1 = new Dice();
@@ -78,6 +90,16 @@ public class Main {
         } //while true
         
         System.out.println(String.format("Overall win rate = %.1f%%", (float)(totalWins * 100) / (totalWins + totalLosses)));
+	
+		}
+		
+		}
+	
+			System.out.println("Sorry,age should be grater than 18");
+			 
+		}
+			
+		
+	
 	}
 
-}
