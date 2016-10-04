@@ -39,20 +39,14 @@ public class TestBug003 {
 	                		player.getName(), player.getBalance(), player.getLimit()));
 
 	                int turn = 0;
-	                while (player.balanceExceedsLimitBy(bet) && player.getBalance() < 200)
+	                while (player.balanceExceedsLimitBy(bet) && player.getBalance() < 100)
 	                {
 	                    turn++;                    
 	                	DiceValue pick = DiceValue.getRandom();
-	                   
-	                	System.out.printf("Turn %d: %s bet %d on %s\n",
-	                			turn, player.getName(), bet, pick); 
-	                	
+
 	                	int winnings = game.playRound(player, pick, bet);
 	                    cdv = game.getDiceValues();
-	                    
-	                    System.out.printf("Rolled %s, %s, %s\n",
-	                    		cdv.get(0), cdv.get(1), cdv.get(2));
-	                    
+             
 	                    if (winnings > 0) {
 		                    System.out.printf("%s won %d, balance now %d\n\n",
 		                    		player.getName(), winnings, player.getBalance());
