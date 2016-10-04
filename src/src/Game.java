@@ -6,9 +6,10 @@ public class Game {
 
 	private List<Dice> dice;
 	private List<DiceValue> values;
-	
+
 	public Game(Dice die1, Dice die2, Dice die3) {
-		if (die1 == null || die2 == null || die3 == null) throw new IllegalArgumentException("Dice cannot be null.");
+		if (die1 == null || die2 == null || die3 == null)
+			throw new IllegalArgumentException("Dice cannot be null.");
 		dice = new ArrayList<Dice>();
 		dice.add(die1);
 		dice.add(die2);
@@ -22,29 +23,33 @@ public class Game {
 			values.add(d.getValue());
 		}
 		return Collections.unmodifiableList(values);
-	}	
-	
-	public int playRound(Player player, DiceValue pick, int bet ) {		
-		if (player == null) throw new IllegalArgumentException("Player cannot be null.");
-		if (pick == null) throw new IllegalArgumentException("Pick cannot be negative.");
-		if (bet < 0) throw new IllegalArgumentException("Bet cannot be negative.");
-		
+	}
+
+	public int playRound(Player player, DiceValue pick, int bet) {
+		if (player == null)
+			throw new IllegalArgumentException("Player cannot be null.");
+		if (pick == null)
+			throw new IllegalArgumentException("Pick cannot be negative.");
+		if (bet < 0)
+			throw new IllegalArgumentException("Bet cannot be negative.");
+
 		player.takeBet(bet);
-		    
+
 		int matches = 0;
-		for ( Dice d : dice) {
-			d.roll();
-			if (d.getValue().equals(pick)) { 
+		for (Dice d : dice) {
+			d.setValue(d.roll()); // update the die value for symbol facing in
+									// roll of current game turn
+			if (d.getValue().equals(pick)) {
 				matches += 1;
 			}
 		}
-		
+
 		int winnings = matches * bet;
 
-		if (matches > 0) {			
+		if (matches > 0) {
 			player.receiveWinnings(winnings, bet);
 		}
-        return winnings;		
+		return winnings;
 	}
-	
+
 }

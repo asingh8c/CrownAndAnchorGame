@@ -67,7 +67,6 @@ public class Main {
 									game = new Game(d1, d2, d3);
 									cdv = game.getDiceValues();
 									winnings = game.playRound(player, pick, bet);
-									System.out.println("Player wins: " + winnings);
 								}
 							}
 							cdv = game.getDiceValues();
