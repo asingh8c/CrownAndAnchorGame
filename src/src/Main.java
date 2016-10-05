@@ -48,7 +48,7 @@ public class Main {
 								player.getBalance(), player.getLimit()));
 
 						int turn = 0;
-						while (player.balanceExceedsLimitBy(bet) && player.getBalance() < 200) {
+						while (player.balanceExceedsLimitBy(bet) && player.getBalance()>0) {
 							turn++;
 							DiceValue pick = DiceValue.getRandom();
 
