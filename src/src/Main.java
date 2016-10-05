@@ -1,5 +1,6 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.List;
-import java.io.*;
 import java.util.Scanner;
 
 public class Main {
@@ -24,7 +25,7 @@ public class Main {
 				Dice d2 = new Dice();
 				Dice d3 = new Dice();
 
-				Player player = new Player("Fred", 100);
+				Player player = new Player(name1, 100);
 				Game game = new Game(d1, d2, d3);
 				List<DiceValue> cdv = game.getDiceValues();
 
@@ -36,10 +37,9 @@ public class Main {
 					int loseCount = 0;
 
 					for (int i = 0; i < 100; i++) {
-						String name = "Fred";
 						int balance = 100;
 						int limit = 0;
-						player = new Player(name, balance);
+						player = new Player(name1, balance);
 						player.setLimit(limit);
 						int bet = 5;
 
@@ -48,7 +48,7 @@ public class Main {
 								player.getBalance(), player.getLimit()));
 
 						int turn = 0;
-						while (player.balanceExceedsLimitBy(bet) && player.getBalance() < 200) {
+						while (player.balanceExceedsLimitBy(bet) && player.getBalance()> 0) {
 							turn++;
 							DiceValue pick = DiceValue.getRandom();
 
@@ -56,7 +56,7 @@ public class Main {
 
 							int winnings = game.playRound(player, pick, bet);
 							// Bug003 fix
-							//If player wins and win/lose become >42, throw the
+							// If player wins and win/lose become >42, throw the
 							// dice again and
 							// change it before displaying the throw to user
 							if (winnings > 0 && ((float) (winCount + 1) / ((winCount + 1) + loseCount)) > 0.42) {
