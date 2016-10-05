@@ -40,7 +40,7 @@ public class Main {
 						String name = "Fred";
 						int balance = 100;
 						int limit = 0;
-						player = new Player(name, balance);
+						player = new Player(name1, balance);
 						player.setLimit(limit);
 						int bet = 5;
 
