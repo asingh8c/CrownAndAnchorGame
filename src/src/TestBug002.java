@@ -7,9 +7,7 @@ public class TestBug002 {
 
 	public static void main(String[] args) throws Exception {
 		int age = 20;
-
 		while (age >= 18) {
-
 			Scanner reader = new Scanner(System.in); // Reading from System.in
 			System.out.println("Enter your name: ");
 			String name1 = reader.next(); // Scans the next token of the input
@@ -37,7 +35,6 @@ public class TestBug002 {
 					int loseCount = 0;
 
 					for (int i = 0; i < 1; i++) {
-						String name = "Fred";
 						int balance = 100;
 						int limit = 0;
 						player = new Player(name1, balance);
@@ -49,7 +46,7 @@ public class TestBug002 {
 								player.getBalance(), player.getLimit()));
 
 						int turn = 0;
-						while (player.balanceExceedsLimitBy(bet) && player.getBalance()>5) {
+						while (player.balanceExceedsLimitBy(bet) && player.getBalance() > 5) {
 							turn++;
 							DiceValue pick = DiceValue.getRandom();
 
@@ -57,7 +54,7 @@ public class TestBug002 {
 
 							int winnings = game.playRound(player, pick, bet);
 							// Bug003 fix
-							//If player wins and win/lose become >42, throw the
+							// If player wins and win/lose become >42, throw the
 							// dice again and
 							// change it before displaying the throw to user
 							if (winnings > 0 && ((float) (winCount + 1) / ((winCount + 1) + loseCount)) > 0.42) {

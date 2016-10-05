@@ -37,7 +37,6 @@ public class Main {
 					int loseCount = 0;
 
 					for (int i = 0; i < 100; i++) {
-						String name = "Fred";
 						int balance = 100;
 						int limit = 0;
 						player = new Player(name1, balance);
@@ -57,7 +56,7 @@ public class Main {
 
 							int winnings = game.playRound(player, pick, bet);
 							// Bug003 fix
-							//If player wins and win/lose become >42, throw the
+							// If player wins and win/lose become >42, throw the
 							// dice again and
 							// change it before displaying the throw to user
 							if (winnings > 0 && ((float) (winCount + 1) / ((winCount + 1) + loseCount)) > 0.42) {
