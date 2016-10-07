@@ -45,6 +45,20 @@ public class TestBug003 {
 	                	DiceValue pick = DiceValue.getRandom();
 
 	                	int winnings = game.playRound(player, pick, bet);
+	                	// Bug003 fix
+						//If player wins and win/lose become >0.42, throw the
+						// dice again and
+						// change it before displaying the throw to user
+						if (winnings > 0 && ((float) (winCount + 1) / ((winCount + 1) + loseCount)) > 0.42) {
+							while (winnings > 0) {
+								d1 = new Dice();
+								d2 = new Dice();
+								d3 = new Dice();
+								game = new Game(d1, d2, d3);
+								cdv = game.getDiceValues();
+								winnings = game.playRound(player, pick, bet);
+							}
+						}
 	                    cdv = game.getDiceValues();
              
 	                    if (winnings > 0) {
