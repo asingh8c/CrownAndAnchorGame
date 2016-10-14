@@ -46,11 +46,11 @@ public class Main {
                 			turn, player.getName(), bet, pick); 
                 	
                 	int winnings = game.playRound(player, pick, bet);
-                    cdv = game.getDiceValues();
+                    
                     
                     System.out.printf("Rolled %s, %s, %s\n",
                     		cdv.get(0), cdv.get(1), cdv.get(2));
-                    
+                    cdv = game.getDiceValues();
                     if (winnings > 0) {
 	                    System.out.printf("%s won %d, balance now %d\n\n",
 	                    		player.getName(), winnings, player.getBalance());
@@ -72,9 +72,6 @@ public class Main {
             System.out.println(String.format("Win count = %d, Lose Count = %d, %.2f", winCount, loseCount, (float) winCount/(winCount+loseCount)));
             totalWins += winCount;
             totalLosses += loseCount;
-//            double win = totalWins;
-//            double lost = totalLosses;
-//            double ratio = win/(win+lost);
             System.out.println("Please press q to exit.");
 
             String ans = console.readLine();
