@@ -72,6 +72,10 @@ public class Main {
             System.out.println(String.format("Win count = %d, Lose Count = %d, %.2f", winCount, loseCount, (float) winCount/(winCount+loseCount)));
             totalWins += winCount;
             totalLosses += loseCount;
+//            double win = totalWins;
+//            double lost = totalLosses;
+//            double ratio = win/(win+lost);
+            System.out.println("Please press q to exit.");
 
             String ans = console.readLine();
             if (ans.equals("q")) break;
